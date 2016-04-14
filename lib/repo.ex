@@ -10,8 +10,8 @@ defmodule Cart.Repo do
   count the number of records in the model table
   """
   def count(model) do
-    {:ok, %{rows: [[n_rows]]}} = Ecto.Adapters.SQL.query(__MODULE__,
-        "SELECT COUNT(*) FROM #{model.__schema__(:source)}", [])
+    query = "SELECT COUNT(*) FROM #{model.__schema__(:source)}"
+    {:ok, %{rows: [[n_rows]]}} = Ecto.Adapters.SQL.query(__MODULE__, query, [])
     n_rows
   end
 end
