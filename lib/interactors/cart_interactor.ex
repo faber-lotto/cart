@@ -45,10 +45,14 @@ defmodule Cart.CartInteractor do
     end 
   end
 
-  def update_item(item, infos) do
-    case ItemAccessor.update(item, %{infos: infos, cart_id: item.cart_id}) do
-      {:ok, item} -> show(item.cart_id)
-      {:error, cs} -> {:error, cs.errors} 
-    end
+  def update_item(item_id, infos) do
+    if item = ItemAccessor.by_id(item_id) do
+      case ItemAccessor.update(item, %{infos: infos, cart_id: item.cart_id}) do
+        {:ok, item} -> show(item.cart_id)
+        {:error, cs} -> {:error, cs.errors} 
+      end
+    else
+      {:error, ["item not found"]}
+    end 
   end
 end

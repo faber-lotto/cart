@@ -9,6 +9,9 @@ config :cart, Cart.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   timeout: 5000
 
+config :cart,
+  cart_node: :"testcart@ubuntu-14"
+
 config :logger, :console,
   level: :warn,
   format: "\n$date $time [$level] $message\n$metadata",
