@@ -10,7 +10,7 @@ config :cart, Cart.Repo,
   timeout: 5000
 
 config :cart,
-  cart_node: :"testcart@ubuntu-14"
+  cart_node: node
 
 config :logger, :console,
   level: :warn,
