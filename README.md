@@ -57,7 +57,7 @@ iex --name cartclient
 Now you can communicate with the server. My node running the cart server is called `ubuntu-14.04-amd64-vbox`. 
 
 ```
-GenServer.call({Cart.Server, mycart@ubuntu-14.04-amd64-vbox}, {:add_item, %{"name" => "foo"}}
+GenServer.call({Cart.CartServer, mycart@ubuntu-14.04-amd64-vbox}, {:add_item, %{"name" => "foo"}}
 ```
 
 To see the complete functionality take a look at `test/cart_server_test.exs` ;).
