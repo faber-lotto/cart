@@ -1,6 +1,6 @@
 defmodule Cart.ItemAccessor do
   @moduledoc """
-    Contains cart specific queries.
+    Contains item specific queries.
   """
 
   use Cart.Accessor, Cart.Item
@@ -11,5 +11,4 @@ defmodule Cart.ItemAccessor do
       where: item.id in ^item_ids and item.cart_id == ^cart_id)
     |> Repo.delete_all
   end
-
 end

@@ -38,7 +38,7 @@ defmodule Cart.Mixfile do
   end
 
   defp package do
-    [maintainers: ["Farhad Taebi", "Matthias Lindhorst"],
+    [maintainers: ["Farhad Taebi", "Matthias Lindhorst", "Andreas Graeff"],
      licenses: ["Unlicense"],
      links: %{"GitHub" => "https://github.com/faber-lotto/cart"},
      files: ~w(mix.exs README.md test lib config priv)]

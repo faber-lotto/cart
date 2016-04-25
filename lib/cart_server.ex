@@ -1,11 +1,11 @@
-defmodule Cart.Server do
+defmodule Cart.CartServer do
   use GenServer
   alias Cart.CartInteractor
 
   # Client
 
   def start_link do
-    GenServer.start_link(__MODULE__, nil, name: Cart.Server)
+    GenServer.start_link(__MODULE__, nil, name: Cart.CartServer)
   end
 
   ## Server

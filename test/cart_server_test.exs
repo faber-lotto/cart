@@ -9,7 +9,7 @@ defmodule CartServerTest do
     Ecto.Adapters.SQL.Sandbox.mode(Cart.Repo, {:shared, self()})
 
     app_name = Mix.Project.config[:app]
-    server = {Cart.Server, Application.get_env(app_name, :cart_node)}
+    server = {Cart.CartServer, Application.get_env(app_name, :cart_node)}
     {:ok, [server: server]}
   end
 

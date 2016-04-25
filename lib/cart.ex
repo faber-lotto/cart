@@ -4,7 +4,7 @@ defmodule Cart do
   def start(_type, _args) do
     import Supervisor.Spec
     tree = [supervisor(Cart.Repo, []),
-            worker(Cart.Server, [])]
+            worker(Cart.CartServer, [])]
     opts = [name: Cart.Sup, strategy: :one_for_one]
     Supervisor.start_link(tree, opts)
   end
