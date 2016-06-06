@@ -16,7 +16,7 @@ defmodule Cart.CartInteractor do
       cs = Cart.Item.changeset item_params
       if cs.valid? do
         item = ItemAccessor.create! item_params
-        %{cart| items: [item]}
+        CartAccessor.by_id cart.id
       else
         Cart.Repo.rollback(cs.errors)
       end
