@@ -4,6 +4,7 @@ defmodule Cart.Item do
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, read_after_writes: true} 
+  @timestamps_opts usec: true
 
   schema "items" do
     field :infos, :map
