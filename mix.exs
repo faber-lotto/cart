@@ -32,9 +32,11 @@ defmodule Cart.Mixfile do
   end
 
   defp deps do
-    [{:postgrex, "~> 0.11.1"},
-     {:poison, "~> 2.1.0"},
-     {:ecto, "~> 2.0-beta"}]
+    [
+     {:postgrex, "~> 0.12.0"},
+     {:poison, "~> 2.2"},
+     {:ecto, "~> 2.1.0-rc.2"},
+    ]
   end
 
   defp package do
