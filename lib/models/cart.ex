@@ -8,7 +8,7 @@ defmodule Cart.Cart do
   schema "carts" do
     has_many :items, Cart.Item
 
-    timestamps
+    timestamps(type: :utc_datetime)
   end
 
   @required_fields []
