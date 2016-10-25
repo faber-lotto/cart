@@ -10,7 +10,7 @@ defmodule Cart.Item do
     field :infos, :map
     belongs_to :cart, Cart.Cart, type: Ecto.UUID
 
-    timestamps
+    timestamps(type: :utc_datetime)
   end
 
   @required_fields ["infos", "cart_id"]
