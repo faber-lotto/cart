@@ -13,11 +13,12 @@ defmodule Cart.Cart do
 
   @required_fields []
 
-  @optional_fields []
+  @allowed_fields []
 
   @doc "Changeset for a new cart"
   def changeset(params) do
     %Cart.Cart{}
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @allowed_fields)
+    |> validate_required(@required_fields)
   end
 end

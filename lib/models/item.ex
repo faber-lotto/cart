@@ -13,9 +13,15 @@ defmodule Cart.Item do
     timestamps(type: :utc_datetime)
   end
 
-  @required_fields ["infos", "cart_id"]
+  @required_fields [
+    :infos,
+    :cart_id,
+  ]
 
-  @optional_fields []
+  @allowed_fields [
+    :infos,
+    :cart_id,
+  ]
 
   @doc "Create a new item"
   def changeset(params) do
@@ -25,7 +31,8 @@ defmodule Cart.Item do
   @doc "Update existing item"
   def changeset(item, params) do
     item
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @allowed_fields)
     |> foreign_key_constraint(:cart_id)
+    |> validate_required(@required_fields)
   end
 end

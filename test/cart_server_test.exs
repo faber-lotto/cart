@@ -74,7 +74,6 @@ defmodule CartServerTest do
     server = context[:server]
     {:ok, %Cart.Cart{items: [item]}} = CartInteractor.add_item(%{"name" => "foo"})
     new_infos = %{"name" => "bar"}
-    updated_item = %Cart.Item{infos: new_infos}
     {:ok, %Cart.Cart{items: [%Cart.Item{infos: _new_infos}]}} =
     GenServer.call(server, {:update_item, item.id, new_infos})
     assert {:ok, %Cart.Cart{items: [%Cart.Item{infos: _new_infos}]}} =
