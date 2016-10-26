@@ -8,16 +8,17 @@ defmodule Cart.Cart do
   schema "carts" do
     has_many :items, Cart.Item
 
-    timestamps
+    timestamps(type: :utc_datetime)
   end
 
   @required_fields []
 
-  @optional_fields []
+  @allowed_fields []
 
   @doc "Changeset for a new cart"
   def changeset(params) do
     %Cart.Cart{}
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @allowed_fields)
+    |> validate_required(@required_fields)
   end
 end

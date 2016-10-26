@@ -7,7 +7,7 @@ defmodule Cart.Repo.Migrations.CreateItems do
       add :infos, :map
       add :cart_id, references(:carts, type: :uuid, on_delete: :delete_all)
 
-      timestamps
+      timestamps(type: :utc_datetime)
     end
   end
 end
