@@ -3,7 +3,7 @@ defmodule Cart.CartAccessor do
     Contains cart specific queries.
   """
 
-  use Cart.Accessor, Cart.Cart
+  use ExUtils.Ecto.Accessor, [repo: Cart.Repo, model: Cart.Cart]
   alias Cart.Repo
 
   def by_id(id) do

@@ -3,7 +3,7 @@ defmodule Cart.ItemAccessor do
     Contains item specific queries.
   """
 
-  use Cart.Accessor, Cart.Item
+  use ExUtils.Ecto.Accessor, [repo: Cart.Repo, model: Cart.Item]
   alias Cart.Repo
   @timestamps_opts usec: true
 
@@ -11,5 +11,11 @@ defmodule Cart.ItemAccessor do
     from( item in Cart.Item,
       where: item.id in ^item_ids and item.cart_id == ^cart_id)
     |> Repo.delete_all
+  end
+
+  def by_id(id) do
+    query = from entry in Cart.Item,
+      where: entry.id == ^id
+    Repo.one(query)
   end
 end

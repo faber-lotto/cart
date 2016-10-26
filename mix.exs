@@ -21,7 +21,12 @@ defmodule Cart.Mixfile do
   defp applications(:dev), do: applications(:all)
   defp applications(:test), do: applications(:all)
   defp applications(_all) do
-     [:postgrex, :ecto]
+    [
+      :ecto,
+      :ex_utils,
+      :poison,
+      :postgrex,
+    ]
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
@@ -33,9 +38,10 @@ defmodule Cart.Mixfile do
 
   defp deps do
     [
-     {:postgrex, "~> 0.12.0"},
-     {:poison, "~> 2.2"},
      {:ecto, "~> 2.1.0-rc.2"},
+     {:ex_utils, git: "ssh://git@stash.wd.faber:7999/lib/ex_utils.git"},
+     {:poison, "~> 2.2"},
+     {:postgrex, "~> 0.12.0"},
     ]
   end
 
